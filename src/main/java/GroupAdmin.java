@@ -12,6 +12,10 @@ public class GroupAdmin implements Sender{
         }
     }
 
+    /**
+     *
+     * @param obj
+     */
     @Override
     public void unregister(Member obj) {
         if(members.contains(obj)){
@@ -19,29 +23,50 @@ public class GroupAdmin implements Sender{
         }else return;
     }
 
+    /**
+     *
+     * @param offset
+     * @param obj
+     */
     @Override
     public void insert(int offset, String obj) {
         usb.insert(offset,obj);
         notifyMembers();
     }
 
+    /**
+     *
+     * @param obj
+     */
     @Override
     public void append(String obj) {
         usb.append(obj);
         notifyMembers();
     }
 
+    /**
+     *
+     * @param start
+     * @param end
+     */
     @Override
     public void delete(int start, int end) {
         usb.delete(start, end);
         notifyMembers();
     }
 
+    /**
+     *
+     */
     @Override
     public void undo() {
         usb.undo();
         notifyMembers();
     }
+
+    /**
+     *
+     */
     private void notifyMembers(){
         for (Member mem : members){
             mem.update(usb);
