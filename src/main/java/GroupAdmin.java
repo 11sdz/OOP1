@@ -28,7 +28,7 @@ public class GroupAdmin implements Sender{
      * @param obj
      */
     @Override
-    public bool containsObrerver(Member obj) {
+    public boolean containsObrerver(Member obj) {
         if(members.contains(obj)){
             return true;
         }
