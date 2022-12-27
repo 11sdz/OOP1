@@ -22,4 +22,9 @@ public class Member implements MemberInterface {
                 ", usbShallowCopy=" + usbShallowCopy +
                 '}';
     }
+    
+    @Override 
+    public String getName() {
+        return name;
+    }
 }
