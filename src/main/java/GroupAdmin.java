@@ -22,6 +22,18 @@ public class GroupAdmin implements Sender{
             members.remove(obj);
         }else return;
     }
+    
+    /**
+     *
+     * @param obj
+     */
+    @Override
+    public bool containsObrerver(Member obj) {
+        if(members.contains(obj)){
+            return true;
+        }
+        return false;
+    }
 
     /**
      *
