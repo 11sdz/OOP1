@@ -27,4 +27,9 @@ public class Member implements MemberInterface {
     public String getName() {
         return name;
     }
+    
+    @Override 
+    public UndoableStringBuilder getUsbShallowCopy() {
+        return usbShallowCopy;
+    }
 }
