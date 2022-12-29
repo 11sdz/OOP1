@@ -45,6 +45,11 @@ public class ConcreteMember implements Member {
      */
     @Override
     public String toString() {
-        return this.usbShallowCopy.toString();
+        try {
+            return this.usbShallowCopy.toString();
+        }catch (NullPointerException e){
+            System.out.println(e);
+            return null;
+        }
     }
 }
