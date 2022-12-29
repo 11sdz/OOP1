@@ -6,39 +6,37 @@ public class GroupAdmin implements Sender{
      * When GroupAdmin changes state , subscribers gets updated automatically
      * GroupAdmin notify to all members registered
      */
-    private ArrayList<Member> members = new ArrayList<Member>();
+    private ArrayList<ConcreteMember> concreteMembers = new ArrayList<ConcreteMember>();
     private UndoableStringBuilder usb= new UndoableStringBuilder();
 
     /**
      * Registration of members to this GroupAdmin
-     * @param obj
+     * @param obj -Member object
      */
     @Override
     public void register(Member obj) {
-        if (this.members.contains(obj)){
-            return;
-        }else{
-            this.members.add(obj);
+        if (!this.concreteMembers.contains((ConcreteMember)obj)){
+            this.concreteMembers.add((ConcreteMember) obj);
             obj.update(this.usb);
         }
     }
 
     /**
      * Unregistration of members from this GroupAdmin
-     * @param obj
+     * @param obj -Member Object
      */
     @Override
     public void unregister(Member obj) {
-        if(this.members.contains(obj)){
-            this.members.remove(obj);
+        if(this.concreteMembers.contains((ConcreteMember)obj)){
+            this.concreteMembers.remove((ConcreteMember)obj);
             obj.update(null);
-        }else return;
+        }
     }
 
     /**
      * insert action to this UndoableStringBuilder
-     * @param offset
-     * @param obj
+     * @param offset - offset to insert
+     * @param obj - String to insert
      */
     @Override
     public void insert(int offset, String obj) {
@@ -48,7 +46,7 @@ public class GroupAdmin implements Sender{
 
     /**
      * append action to this UndoableStringBuilder
-     * @param obj
+     * @param obj - String to insert
      */
     @Override
     public void append(String obj) {
@@ -58,8 +56,8 @@ public class GroupAdmin implements Sender{
 
     /**
      *  delete action to this UndoableStringBuilder
-     * @param start
-     * @param end
+     * @param start - Integer position delete from
+     * @param end - delete to
      */
     @Override
     public void delete(int start, int end) {
@@ -80,7 +78,7 @@ public class GroupAdmin implements Sender{
      * Observer Notify to all members that subscribed
      */
     private void notifyMembers(){
-        for (Member mem : members){
+        for (ConcreteMember mem : concreteMembers){
             mem.update(this.usb);
         }
     }

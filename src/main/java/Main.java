@@ -1,12 +1,12 @@
 public class Main {
     public static void main(String[] args) {
         GroupAdmin observer = new GroupAdmin();
-        Member mem1 = new Member();
-        Member mem2 = new Member();
-        Member mem3 = new Member();
-        Member mem4 = new Member();
-        Member mem5 = new Member();
-        Member mem6 = new Member();
+        ConcreteMember mem1 = new ConcreteMember();
+        ConcreteMember mem2 = new ConcreteMember();
+        ConcreteMember mem3 = new ConcreteMember();
+        ConcreteMember mem4 = new ConcreteMember();
+        ConcreteMember mem5 = new ConcreteMember();
+        ConcreteMember mem6 = new ConcreteMember();
 
         observer.register(mem1);
         observer.register(mem2);
