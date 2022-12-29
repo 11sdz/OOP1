@@ -45,9 +45,6 @@ public class ConcreteMember implements Member {
      */
     @Override
     public String toString() {
-        return "Member{" +
-                "name='" + name + '\'' +
-                ", usbShallowCopy=" + usbShallowCopy +
-                '}';
+        return this.usbShallowCopy.toString();
     }
 }

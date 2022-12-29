@@ -39,5 +39,7 @@ public class Main {
         System.out.println(mem4);
         System.out.println(mem5);
         System.out.println(mem6);
+
+        System.out.println(observer);
     }
 }

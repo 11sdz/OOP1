@@ -29,7 +29,6 @@ public class GroupAdmin implements Sender{
     public void unregister(Member obj) {
         if(this.concreteMembers.contains((ConcreteMember)obj)){
             this.concreteMembers.remove((ConcreteMember)obj);
-            obj.update(null);
         }
     }
 
@@ -81,5 +80,13 @@ public class GroupAdmin implements Sender{
         for (ConcreteMember mem : concreteMembers){
             mem.update(this.usb);
         }
+    }
+
+    @Override
+    public String toString() {
+        return usb.toString();
+    }
+    public boolean isRegistered(Member obj){
+        return concreteMembers.contains((ConcreteMember) obj);
     }
 }
